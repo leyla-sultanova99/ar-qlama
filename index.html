@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leyla Sultanova</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --r:#c0392b;
+  --r2:#e74c3c;
+  --o:#e67e22;
+  --o2:#f39c12;
+  --b:#1a3a8f;
+  --b2:#2855cc;
+  --b3:#4a7fd4;
+  --bd:#0a1640;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Poppins',sans-serif;overflow-x:hidden;background:var(--bd);}
+
+/* ── TICKER ── */
+.ticker{
+  background:linear-gradient(90deg,var(--r),var(--r2),var(--o),var(--r));
+  background-size:300% auto;animation:gshift 4s linear infinite;
+  color:#fff;text-align:center;padding:10px;font-size:.82rem;font-weight:700;
+}
+.ticker b{background:rgba(0,0,0,.25);padding:2px 12px;border-radius:20px;margin:0 4px;}
+@keyframes gshift{0%{background-position:0% center;}100%{background-position:300% center;}}
+
+/* ── NAV ── */
+nav{
+  background:linear-gradient(90deg,var(--bd),var(--b),var(--b2));
+  padding:15px 28px;display:flex;justify-content:space-between;align-items:center;
+  border-bottom:3px solid var(--o);position:sticky;top:0;z-index:200;
+}
+.logo{font-size:1.2rem;font-weight:900;color:#fff;letter-spacing:1px;}
+.logo em{font-style:normal;color:var(--o2);}
+.nav-btn{
+  background:linear-gradient(135deg,var(--r),var(--o));
+  color:#fff;border:none;padding:9px 22px;border-radius:50px;
+  font-size:.8rem;font-weight:700;cursor:pointer;font-family:'Poppins',sans-serif;
+  box-shadow:0 4px 14px rgba(192,57,43,.4);transition:transform .2s;
+}
+.nav-btn:hover{transform:scale(1.05);}
+
+/* ══════════════════════════════
+   HERO
+══════════════════════════════ */
+.hero{
+  background:linear-gradient(150deg,var(--bd) 0%,var(--b) 40%,var(--b2) 75%,#1e4fcf 100%);
+  padding:70px 24px 0;text-align:center;position:relative;overflow:hidden;
+}
+.bc{position:absolute;border-radius:50%;pointer-events:none;}
+.bc1{width:560px;height:560px;top:-180px;right:-180px;
+  background:radial-gradient(circle,rgba(230,126,34,.16),transparent 65%);
+  animation:rspin 22s linear infinite;}
+.bc2{width:380px;height:380px;bottom:-120px;left:-100px;
+  background:radial-gradient(circle,rgba(192,57,43,.14),transparent 65%);
+  animation:rspin 16s linear infinite reverse;}
+@keyframes rspin{from{transform:rotate(0);}to{transform:rotate(360deg);}}
+
+.h-pill{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,.09);border:1.5px solid rgba(255,255,255,.22);
+  color:#fff;padding:8px 22px;border-radius:50px;font-size:.78rem;font-weight:700;
+  letter-spacing:.8px;margin-bottom:26px;backdrop-filter:blur(6px);
+  animation:fadeD .6s ease both;
+}
+.pdot{width:9px;height:9px;border-radius:50%;background:var(--o2);
+  box-shadow:0 0 0 0 rgba(243,156,18,.6);animation:pdot 1.5s infinite;}
+@keyframes pdot{70%{box-shadow:0 0 0 9px rgba(243,156,18,0);}100%{box-shadow:0 0 0 0 rgba(243,156,18,0);}}
+
+.hero h1{
+  font-size:clamp(2rem,6.5vw,3.6rem);font-weight:900;color:#fff;
+  line-height:1.15;max-width:700px;margin:0 auto 18px;
+  animation:fadeD .8s ease both;
+}
+.hero h1 .gr{
+  background:linear-gradient(90deg,var(--o2),var(--o),var(--r2));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+.hero p{
+  color:rgba(255,255,255,.76);font-size:1rem;max-width:520px;
+  margin:0 auto 40px;line-height:1.85;animation:fadeD 1s ease both;
+}
+.hero-btns{display:flex;flex-direction:column;align-items:center;gap:14px;animation:fadeU 1s ease both;}
+.btn-fire{
+  display:inline-flex;align-items:center;gap:10px;
+  background:linear-gradient(135deg,var(--r) 0%,var(--r2) 40%,var(--o) 100%);
+  background-size:200% auto;
+  color:#fff;font-weight:800;font-size:1.1rem;padding:20px 58px;
+  border-radius:60px;text-decoration:none;letter-spacing:.4px;
+  box-shadow:0 8px 32px rgba(192,57,43,.5);
+  transition:all .3s;position:relative;overflow:hidden;
+  animation:btnp 2.5s ease 2s infinite;
+}
+.btn-fire::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(120deg,transparent 30%,rgba(255,255,255,.18) 50%,transparent 70%);
+  transform:translateX(-200%);animation:shine 3s ease 3s infinite;
+}
+@keyframes shine{to{transform:translateX(200%);}}
+@keyframes btnp{0%,100%{box-shadow:0 8px 32px rgba(192,57,43,.5);}50%{box-shadow:0 8px 52px rgba(192,57,43,.85);}}
+.btn-fire:hover{background-position:right center;transform:translateY(-3px);}
+.phint{color:rgba(255,255,255,.58);font-size:.82rem;}
+.phint s{margin-right:4px;}
+.phint strong{color:var(--o2);}
+
+/* hero stats strip */
+.hstrip{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:52px;
+  background:rgba(0,0,0,.28);border-top:1px solid rgba(255,255,255,.08);
+  backdrop-filter:blur(6px);position:relative;z-index:1;
+}
+.hsi{padding:22px 10px;text-align:center;border-right:1px solid rgba(255,255,255,.07);}
+.hsi:last-child{border-right:none;}
+.hsi-n{
+  font-size:1.7rem;font-weight:900;display:block;
+  background:linear-gradient(90deg,var(--o2),var(--o));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+.hsi-l{font-size:.67rem;color:rgba(255,255,255,.55);font-weight:600;letter-spacing:.8px;text-transform:uppercase;}
+
+/* ── ALL WAVE WRAPPERS ── */
+.wave-wrap{display:block;line-height:0;overflow:hidden;}
+
+/* ══════════════════════════════
+   FEATURES
+══════════════════════════════ */
+.features{
+  background:linear-gradient(180deg,#1a3eaa 0%,#162f8a 60%,#112470 100%);
+  padding:64px 24px 80px;
+}
+.sh{text-align:center;margin-bottom:44px;}
+.sh h2{font-size:clamp(1.5rem,4vw,2rem);font-weight:800;color:#fff;}
+.sh h2 em{font-style:normal;color:var(--o2);}
+.sh p{color:rgba(255,255,255,.55);font-size:.87rem;margin-top:8px;}
+
+.fgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;max-width:860px;margin:0 auto;}
+.fc{
+  background:linear-gradient(135deg,rgba(255,255,255,.08),rgba(255,255,255,.03));
+  border:1.5px solid rgba(255,255,255,.1);border-radius:20px;
+  padding:28px 22px;display:flex;gap:18px;align-items:flex-start;
+  transition:all .3s;backdrop-filter:blur(4px);
+}
+.fc:hover{transform:translateY(-5px);border-color:rgba(230,126,34,.45);
+  background:linear-gradient(135deg,rgba(230,126,34,.12),rgba(255,255,255,.04));}
+.fi{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;
+  justify-content:center;font-size:1.5rem;flex-shrink:0;}
+.fi-o{background:linear-gradient(135deg,var(--o),var(--o2));}
+.fi-r{background:linear-gradient(135deg,var(--r),var(--r2));}
+.fi-b{background:linear-gradient(135deg,var(--b2),var(--b3));}
+.ft h3{color:#fff;font-size:.95rem;font-weight:700;margin-bottom:6px;}
+.ft p{color:rgba(255,255,255,.6);font-size:.82rem;line-height:1.6;}
+
+/* ══════════════════════════════
+   ABOUT
+══════════════════════════════ */
+.about{
+  background:linear-gradient(160deg,var(--o) 0%,var(--o2) 50%,#e8a020 100%);
+  padding:64px 24px 80px;position:relative;overflow:hidden;
+}
+.about::before{content:'';position:absolute;top:-100px;right:-100px;
+  width:320px;height:320px;border-radius:50%;background:rgba(255,255,255,.1);}
+.about::after{content:'';position:absolute;bottom:-80px;left:-80px;
+  width:260px;height:260px;border-radius:50%;background:rgba(0,0,0,.08);}
+.ain{max-width:680px;margin:0 auto;display:flex;gap:34px;align-items:center;position:relative;z-index:1;}
+.aimg{
+  width:110px;height:110px;border-radius:50%;flex-shrink:0;
+  background:linear-gradient(135deg,var(--b),var(--b2));
+  display:flex;align-items:center;justify-content:center;font-size:3rem;
+  border:4px solid rgba(255,255,255,.45);box-shadow:0 8px 28px rgba(0,0,0,.2);
+  animation:fl 5s ease-in-out infinite;
+}
+@keyframes fl{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
+.atxt h2{font-size:1.4rem;font-weight:800;color:#fff;margin-bottom:10px;}
+.atxt p{color:rgba(255,255,255,.88);font-size:.88rem;line-height:1.75;}
+.atags{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;}
+.atag{background:rgba(255,255,255,.22);color:#fff;padding:5px 14px;
+  border-radius:50px;font-size:.72rem;font-weight:700;border:1px solid rgba(255,255,255,.3);}
+
+/* ══════════════════════════════
+   REVIEWS
+══════════════════════════════ */
+.reviews-sec{
+  background:linear-gradient(180deg,#0d1f6e 0%,#0a1855 50%,var(--bd) 100%);
+  padding:64px 24px 80px;
+}
+.rgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:20px;max-width:900px;margin:0 auto;}
+.rc{
+  background:linear-gradient(135deg,rgba(255,255,255,.08),rgba(255,255,255,.03));
+  border:1.5px solid rgba(255,255,255,.1);border-radius:20px;
+  padding:28px;position:relative;overflow:hidden;transition:all .3s;
+}
+.rc:nth-child(1){border-top:3px solid var(--o);}
+.rc:nth-child(2){border-top:3px solid var(--r2);}
+.rc:nth-child(3){border-top:3px solid var(--b3);}
+.rc:hover{transform:translateY(-5px);}
+.rq{position:absolute;top:12px;right:18px;font-size:4rem;line-height:1;
+  color:rgba(255,255,255,.05);font-family:Georgia,serif;}
+.rs{color:var(--o2);font-size:.9rem;letter-spacing:2px;margin-bottom:12px;}
+.rc p{color:rgba(255,255,255,.8);font-size:.87rem;line-height:1.7;margin-bottom:16px;font-style:italic;}
+.rp{display:flex;align-items:center;gap:10px;}
+.rav{width:38px;height:38px;border-radius:50%;
+  background:linear-gradient(135deg,var(--o),var(--r));
+  display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:.9rem;}
+.ri strong{color:#fff;font-size:.82rem;font-weight:700;display:block;}
+.ri span{color:rgba(255,255,255,.5);font-size:.72rem;}
+
+/* ══════════════════════════════
+   URGENCY
+══════════════════════════════ */
+.urgency{
+  background:linear-gradient(135deg,var(--r) 0%,var(--r2) 50%,#c0392b 100%);
+  padding:28px 24px;text-align:center;
+}
+.urgency h3{color:#fff;font-size:1.1rem;font-weight:800;}
+.urgency p{color:rgba(255,255,255,.85);font-size:.85rem;margin-top:5px;}
+
+/* ══════════════════════════════
+   PACKAGES
+══════════════════════════════ */
+.pkg-sec{
+  background:linear-gradient(170deg,#1a2f7a 0%,var(--b) 50%,#0f2460 100%);
+  padding:64px 24px 80px;
+}
+.pgrid{display:flex;justify-content:center;gap:20px;max-width:620px;margin:0 auto 36px;}
+.pkg{
+  border-radius:22px;padding:30px 22px;
+  border:2px solid rgba(255,255,255,.12);
+  background:linear-gradient(160deg,rgba(255,255,255,.08),rgba(255,255,255,.03));
+  cursor:pointer;transition:all .3s;position:relative;overflow:hidden;
+  width:320px;
+}
+.pkg:hover{transform:translateY(-5px);border-color:rgba(230,126,34,.4);}
+.pkg.pop{
+  border-color:var(--o);
+  background:linear-gradient(160deg,rgba(230,126,34,.15),rgba(243,156,18,.07));
+  box-shadow:0 12px 40px rgba(230,126,34,.25);
+}
+.pbadge{
+  position:absolute;top:-1px;left:50%;transform:translateX(-50%);
+  background:linear-gradient(90deg,var(--o),var(--o2));
+  color:#fff;font-size:.68rem;font-weight:800;
+  padding:5px 18px;border-radius:0 0 12px 12px;letter-spacing:.5px;white-space:nowrap;
+}
+.plbl{font-size:.72rem;font-weight:700;color:rgba(255,255,255,.5);
+  letter-spacing:1px;text-transform:uppercase;margin-bottom:10px;display:block;}
+.pold{color:rgba(255,255,255,.35);font-size:.8rem;text-decoration:line-through;}
+.pprice{font-size:2.6rem;font-weight:900;color:#fff;line-height:1;margin:4px 0 16px;}
+.pprice sub{font-size:1rem;font-weight:600;color:rgba(255,255,255,.7);}
+.plist{list-style:none;}
+.plist li{font-size:.8rem;color:rgba(255,255,255,.75);
+  padding:6px 0;border-bottom:1px solid rgba(255,255,255,.06);
+  display:flex;align-items:center;gap:10px;}
+.plist li:last-child{border-bottom:none;}
+.plist li::before{content:"✓";width:20px;height:20px;border-radius:50%;
+  background:linear-gradient(135deg,var(--o),var(--o2));
+  color:#fff;font-size:.65rem;font-weight:900;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.pkg.pop .plist li::before{background:linear-gradient(135deg,var(--r),var(--r2));}
+
+/* ══════════════════════════════
+   FORM
+══════════════════════════════ */
+.form-sec{
+  background:linear-gradient(160deg,var(--r) 0%,var(--r2) 25%,var(--o) 55%,var(--o2) 75%,#e8960a 100%);
+  padding:60px 24px 80px;position:relative;overflow:hidden;
+}
+.form-sec::before{content:'';position:absolute;top:-80px;right:-80px;
+  width:300px;height:300px;border-radius:50%;background:rgba(255,255,255,.08);}
+.form-sec::after{content:'';position:absolute;bottom:-60px;left:-60px;
+  width:240px;height:240px;border-radius:50%;background:rgba(0,0,0,.1);}
+.fbox{
+  background:linear-gradient(160deg,var(--b),var(--b2),#1e4fcf);
+  border-radius:28px;padding:42px 34px;max-width:580px;margin:0 auto;
+  box-shadow:0 20px 60px rgba(0,0,0,.35);position:relative;z-index:1;
+  border:2px solid rgba(255,255,255,.12);
+}
+.ftitle{color:#fff;font-size:1.35rem;font-weight:800;text-align:center;margin-bottom:4px;}
+.fsub{color:rgba(255,255,255,.58);font-size:.8rem;text-align:center;margin-bottom:22px;}
+.srow{display:flex;justify-content:space-between;margin-bottom:28px;position:relative;}
+.srow::before{content:'';position:absolute;top:15px;left:16px;right:16px;height:2px;background:rgba(255,255,255,.1);}
+.si{flex:1;text-align:center;position:relative;z-index:1;}
+.sc{width:30px;height:30px;border-radius:50%;
+  background:linear-gradient(135deg,var(--o),var(--o2));
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 6px;color:#fff;font-weight:800;font-size:.78rem;
+  box-shadow:0 4px 12px rgba(230,126,34,.4);}
+.sl{font-size:.65rem;color:rgba(255,255,255,.55);font-weight:600;}
+
+/* Payment info accordion */
+.pay-info{
+  background:rgba(0,0,0,.18);border:1.5px solid rgba(255,255,255,.15);
+  border-radius:16px;margin-bottom:22px;overflow:hidden;
+}
+.pay-info-header{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:14px 18px;cursor:pointer;
+}
+.pay-info-header span{color:#fff;font-size:.85rem;font-weight:700;}
+.pay-info-header .arrow{color:var(--o2);font-size:1rem;transition:transform .3s;}
+.pay-info-header.open .arrow{transform:rotate(180deg);}
+.pay-info-body{
+  padding:0 18px;max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s ease;
+}
+.pay-info-body.open{max-height:300px;padding:0 18px 16px;}
+.pay-info-body ol{padding-left:18px;}
+.pay-info-body ol li{color:rgba(255,255,255,.78);font-size:.8rem;line-height:1.7;margin-bottom:4px;}
+.pay-info-body .pay-note{
+  margin-top:10px;background:rgba(230,126,34,.15);
+  border-left:3px solid var(--o2);border-radius:0 8px 8px 0;
+  padding:10px 14px;color:rgba(255,255,255,.8);font-size:.78rem;line-height:1.65;
+}
+
+.kpanel{
+  background:rgba(0,0,0,.22);border:1.5px solid rgba(230,126,34,.38);
+  border-radius:16px;padding:18px 20px;margin-bottom:22px;
+  display:flex;justify-content:space-between;align-items:center;gap:12px;
+}
+.kl .kll{color:rgba(255,255,255,.45);font-size:.7rem;font-weight:600;
+  letter-spacing:.5px;text-transform:uppercase;display:block;margin-bottom:6px;}
+.knum{color:#fff;font-size:1.1rem;font-weight:700;
+  letter-spacing:3px;font-family:'Courier New',monospace;}
+.cbtn{
+  background:linear-gradient(135deg,var(--o),var(--o2));
+  border:none;color:#fff;padding:11px 20px;border-radius:12px;
+  font-family:'Poppins',sans-serif;font-weight:700;font-size:.78rem;
+  cursor:pointer;white-space:nowrap;flex-shrink:0;transition:all .2s;
+}
+.cbtn:hover{transform:scale(1.06);}
+.fg{margin-bottom:18px;}
+.flbl{color:rgba(255,255,255,.65);font-size:.78rem;font-weight:600;display:block;margin-bottom:8px;}
+.finp{
+  width:100%;background:rgba(255,255,255,.09);
+  border:1.5px solid rgba(255,255,255,.15);border-radius:14px;
+  padding:14px 18px;color:#fff;font-size:.9rem;
+  font-family:'Poppins',sans-serif;outline:none;transition:border-color .25s;
+}
+.finp::placeholder{color:rgba(255,255,255,.3);}
+.finp:focus{border-color:var(--o);}
+.sbtn{
+  width:100%;margin-top:10px;
+  background:linear-gradient(135deg,var(--r),var(--r2),var(--o));
+  background-size:200% auto;
+  color:#fff;border:none;padding:19px;border-radius:60px;
+  font-size:1.05rem;font-weight:800;cursor:pointer;
+  font-family:'Poppins',sans-serif;letter-spacing:.3px;
+  box-shadow:0 8px 28px rgba(0,0,0,.3);transition:all .3s;
+  position:relative;overflow:hidden;
+  animation:btnp 2.5s ease 5s infinite;
+}
+.sbtn::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(120deg,transparent 30%,rgba(255,255,255,.18) 50%,transparent 70%);
+  transform:translateX(-200%);animation:shine 3.5s ease 5s infinite;
+}
+.sbtn:hover{background-position:right center;transform:translateY(-2px);}
+
+/* WhatsApp floating button */
+.wa-float{
+  position:fixed;bottom:28px;right:28px;z-index:999;
+  width:58px;height:58px;border-radius:50%;
+  background:linear-gradient(135deg,#25D366,#128C7E);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 6px 24px rgba(37,211,102,.45);
+  text-decoration:none;transition:transform .25s;
+  animation:wapulse 2.5s ease infinite;
+}
+.wa-float:hover{transform:scale(1.12);}
+.wa-float svg{width:30px;height:30px;fill:#fff;}
+@keyframes wapulse{
+  0%,100%{box-shadow:0 6px 24px rgba(37,211,102,.45);}
+  50%{box-shadow:0 6px 36px rgba(37,211,102,.8);}
+}
+
+/* FOOTER */
+footer{
+  background:linear-gradient(90deg,#060d2e,#0a1640,#060d2e);
+  border-top:3px solid var(--o);color:rgba(255,255,255,.4);
+  text-align:center;padding:22px;font-size:.8rem;
+}
+footer em{font-style:normal;color:var(--o);font-weight:700;}
+
+/* DISCLAIMER */
+.disc{background:#060d2e;text-align:center;padding:18px 24px 28px;
+  font-size:.72rem;color:rgba(255,255,255,.28);
+  max-width:600px;margin:0 auto;line-height:1.8;}
+
+/* ANIMATIONS */
+@keyframes fadeD{from{opacity:0;transform:translateY(-22px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fadeU{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .65s ease,transform .65s ease;}
+.reveal.in{opacity:1;transform:translateY(0);}
+
+@media(max-width:540px){
+  .hstrip,.fgrid{grid-template-columns:1fr 1fr;}
+  .fgrid{grid-template-columns:1fr;}
+  .ain{flex-direction:column;text-align:center;}
+  .atags{justify-content:center;}
+  .srow{display:none;}
+  .fbox{padding:28px 18px;}
+  .pgrid{flex-direction:column;align-items:center;}
+  .pkg{width:100%;}
+}
+</style>
+</head>
+<body>
+
+<div class="ticker">🔥 Bu qiymətdə yalnız <b id="spots">13</b> yer qalıb! Fürsəti əldən vermə!</div>
+
+<nav>
+  <div class="logo">Leyla <em>Sultanova</em></div>
+  <button class="nav-btn" onclick="document.getElementById('al').scrollIntoView({behavior:'smooth'})">9.99 AZN — Al →</button>
+</nav>
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <div class="bc bc1"></div><div class="bc bc2"></div>
+  <div class="h-pill"><span class="pdot"></span>30 GÜNDƏ ARIQLA</div>
+  <h1>30 Günə <span class="gr"> ARIQLA</span></h1>
+  <p>Sübutlu Arıqlama Yolları</p>
+  <div class="hero-btns">
+    <a onclick="document.getElementById('odenis').scrollIntoView({behavior:'smooth'})" class="btn-fire" style="cursor:pointer;">🚀 İndi Başla — 9.99 AZN</a>
+    <div class="phint"><s>40 AZN</s> əvəzinə <strong>9.99 AZN</strong> — bu gün</div>
+  </div>
+  <div class="hstrip">
+    <div class="hsi"><span class="hsi-n">500+</span><span class="hsi-l">Müştəri</span></div>
+    <div class="hsi"><span class="hsi-n">30</span><span class="hsi-l">Gün</span></div>
+    <div class="hsi"><span class="hsi-n">10 kq</span><span class="hsi-l">Orta nəticə</span></div>
+    <div class="hsi"><span class="hsi-n">9.99₼</span><span class="hsi-l">Qiymət</span></div>
+  </div>
+</section>
+
+<!-- ══ FƏRQİMİZ ══ -->
+<div style="background:linear-gradient(180deg,#1e4fcf 0%,#1a3eaa 100%);padding:48px 24px 52px;text-align:center;">
+  <div style="max-width:600px;margin:0 auto;">
+    <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(243,156,18,.15);border:1.5px solid rgba(243,156,18,.35);color:#f39c12;padding:7px 20px;border-radius:50px;font-size:.75rem;font-weight:700;letter-spacing:1px;margin-bottom:22px;">✦ NİYƏ BİZ?</div>
+    <p style="color:#fff;font-size:1.07rem;font-weight:700;line-height:1.80;margin-bottom:32px;">
+Bizim fərqimiz odur ki, Azərbaycana uyğun proqram hazırlamışıq və təqdim etdiyimiz idman və qidalanma üsulları elmi və praktiki olaraq sübut olunub.</span>
+    </p>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;">
+      <div style="background:rgba(255,255,255,.07);border:1.5px solid rgba(255,255,255,.1);border-radius:18px;padding:20px 12px;">
+        <div style="font-size:2rem;margin-bottom:8px;">🇦🇿</div>
+        <div style="color:#fff;font-size:.8rem;font-weight:700;line-height:1.4;">Hərşey Azərbaycana Uyğun</div>
+      </div>
+      <div style="background:rgba(255,255,255,.07);border:1.5px solid rgba(255,255,255,.1);border-radius:18px;padding:20px 12px;">
+        <div style="font-size:2rem;margin-bottom:8px;">🔬</div>
+        <div style="color:#fff;font-size:.8rem;font-weight:700;line-height:1.4;">Elmi və Sübutlu Üsullar</div>
+      </div>
+      <div style="background:rgba(255,255,255,.07);border:1.5px solid rgba(255,255,255,.1);border-radius:18px;padding:20px 12px;">
+        <div style="font-size:2rem;margin-bottom:8px;">✅</div>
+        <div style="color:#fff;font-size:.8rem;font-weight:700;line-height:1.4;">30 Günlük Program</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WAVE hero→features -->
+<div class="wave-wrap" style="background:#1e4fcf;">
+  <svg viewBox="0 0 1440 90" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="width:100%;height:90px;display:block;">
+    <path d="M0,0 C200,90 400,20 720,55 C1000,85 1240,10 1440,45 L1440,90 L0,90 Z" fill="#1a3eaa"/>
+  </svg>
+</div>
+
+<!-- ══ FEATURES ══ -->
+<section class="features">
+  <div class="sh reveal"><h2>Proqramda <em>nə var?</em></h2><p>Hər şey Azərbaycan həyat tərzi üçün hazırlanıb</p></div>
+  <div class="fgrid">
+    <div class="fc reveal"><div class="fi fi-o">🍽️</div><div class="ft"><h3>Azərbaycan Menyusu</h3><p>Plov, dolma, şorba — öz yeməyinlə arıqla. Heç bir xarici yemək yoxdur.</p></div></div>
+    <div class="fc reveal"><div class="fi fi-r">📅</div><div class="ft"><h3>30 Günlük Plan</h3><p>Hər günün menyusu detallı hazırlanmış — nə yeyəcəyini öncədən bilirsən.</p></div></div>
+    <div class="fc reveal"><div class="fi fi-b">🏠</div><div class="ft"><h3>Evdə İdman</h3><p>Gündə 15 dəqiqə. Heç bir idman zalı, heç bir avadanlıq lazım deyil.</p></div></div>
+    <div class="fc reveal"><div class="fi fi-o">🔟</div><div class="ft"><h3>10kq Arıqla</h3><p>Qaranti Şəkildə 1 Ayda 10kq Arıqlama</p></div></div>
+  </div>
+</section>
+
+<!-- WAVE features→about -->
+<div class="wave-wrap" style="background:#112470;">
+  <svg viewBox="0 0 1440 110" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="width:100%;height:110px;display:block;">
+    <path d="M0,30 C300,110 700,0 1100,70 C1260,95 1380,40 1440,60 L1440,110 L0,110 Z" fill="#e67e22"/>
+  </svg>
+</div>
+
+<!-- ══ ABOUT ══ -->
+<section class="about">
+  <div class="ain reveal">
+    <div class="aimg">👩</div>
+    <div class="atxt">
+      <h2>Leyla Sultanova kimdir?</h2>
+      <p>8 ildir qidalanma sahəsindəyəm. Yüzlərlə qadına 1 Ay Ərzində gündəlik qısa idmanlar ilə arıqlamağı öyrətmişəm. Bu proqram Dərin Araşdırmalar, Yoxlanılmış Üsullar və Elmi Sübutlar Əsasında Hazırlanmışdır!</p>
+      <div class="atags">
+        <span class="atag">✦ 8 il təcrübə</span>
+        <span class="atag">✦ 500+ müştəri</span>
+        <span class="atag">✦ Azərbaycan mətbəxi</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WAVE about→reviews -->
+<div class="wave-wrap" style="background:#e8a020;">
+  <svg viewBox="0 0 1440 110" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="width:100%;height:110px;display:block;">
+    <path d="M0,50 C360,110 900,0 1200,70 C1320,100 1400,35 1440,55 L1440,110 L0,110 Z" fill="#0d1f6e"/>
+  </svg>
+</div>
+
+<!-- ══ REVIEWS ══ -->
+<section class="reviews-sec">
+  <div class="sh reveal"><h2>Real <em>Nəticələr</em></h2><p>Müştərilərimizin Real Rəyləri</p></div>
+  <div class="rgrid">
+    <div class="rc reveal"><div class="rq">"</div><div class="rs">★★★★★</div><p>"3 həftədə 7 kq verdim. Ən yaxşısı odur ki, Gündə sadəcə 15dq İdman Ettim🥰"</p><div class="rp"><div class="rav">N</div><div class="ri"><strong>Nigar Əliyeva</strong><span>Bakı</span></div></div></div>
+    <div class="rc reveal"><div class="rq">"</div><div class="rs">★★★★★</div><p>"Nəhayət Azərbaycana Uygun arıqlama proqramı tapdım. Tövsiyə edirəm."</p><div class="rp"><div class="rav">A</div><div class="ri"><strong>Aytən Hüseynova</strong><span>Gəncə</span></div></div></div>
+    <div class="rc reveal"><div class="rq">"</div><div class="rs">★★★★★</div><p>"1 ayda 8 kq verdim. Evdə idman çox rahat idi, vaxt itirmədim."</p><div class="rp"><div class="rav">T</div><div class="ri"><strong>Türkan Babayeva</strong><span>Sumqayıt</span></div></div></div>
+  </div>
+</section>
+<!-- "Başqaları edib, sən də edə bilərsən" bölməsi -->
+<div style="
+  background: linear-gradient(135deg, #1a3a8f, #2855cc);
+  padding: 48px 24px;
+  text-align: center;
+">
+  <p style="color:rgba(255,255,255,.6); font-size:.8rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; margin-bottom:14px;">
+    REAL NƏTICƏLƏR
+  </p>
+  <h2 style="color:#fff; font-size:clamp(1.6rem,4.5vw,2.4rem); font-weight:900; line-height:1.25; max-width:600px; margin:0 auto 14px;">
+    Başqaları edib —<br>
+    <span style="background:linear-gradient(90deg,#f39c12,#e67e22); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">
+      sən də edə bilərsən
+    </span>
+  </h2>
+  <p style="color:rgba(255,255,255,.7); font-size:.95rem; max-width:460px; margin:0 auto 36px; line-height:1.8;">
+    500-dən çox Azərbaycan qadını bu proqramla arıqladı. Hamısı evdə, rahat idmanlar ilə.
+  </p>
+
+  <!-- 3 nəticə kartı -->
+  <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:16px; max-width:760px; margin:0 auto;">
+
+    <div style="background:rgba(255,255,255,.08); border:1.5px solid rgba(230,126,34,.35); border-radius:16px; padding:22px 20px; width:200px;">
+      <div style="font-size:2rem; font-weight:900; color:#f39c12;">−12 kq</div>
+      <div style="color:#fff; font-size:.82rem; font-weight:700; margin:6px 0 4px;">Nigar, Bakı</div>
+      <div style="color:rgba(255,255,255,.55); font-size:.75rem;">3 həftədə</div>
+    </div>
+
+    <div style="background:rgba(255,255,255,.08); border:1.5px solid rgba(192,57,43,.4); border-radius:16px; padding:22px 20px; width:200px;">
+      <div style="font-size:2rem; font-weight:900; color:#e74c3c;">−9 kq</div>
+      <div style="color:#fff; font-size:.82rem; font-weight:700; margin:6px 0 4px;">Türkan, Sumqayıt</div>
+      <div style="color:rgba(255,255,255,.55); font-size:.75rem;">1 ayda</div>
+    </div>
+
+    <div style="background:rgba(255,255,255,.08); border:1.5px solid rgba(230,126,34,.35); border-radius:16px; padding:22px 20px; width:200px;">
+      <div style="font-size:2rem; font-weight:900; color:#f39c12;">−8 kq</div>
+      <div style="color:#fff; font-size:.82rem; font-weight:700; margin:6px 0 4px;">Aytən, Gəncə</div>
+      <div style="color:rgba(255,255,255,.55); font-size:.75rem;">25 günə</div>
+    </div>
+
+  </div>
+
+  <a href="#al" style="
+    display:inline-block; margin-top:36px;
+    background:linear-gradient(135deg,#c0392b,#e74c3c,#e67e22);
+    color:#fff; font-weight:800; font-size:1rem;
+    padding:17px 48px; border-radius:50px; text-decoration:none;
+    box-shadow:0 8px 28px rgba(192,57,43,.45);
+  ">
+    Mən də istəyirəm →
+  </a>
+</div>
+
+
+<!-- WAVE reviews→urgency -->
+<div class="wave-wrap" style="background:#0a1640;">
+  <svg viewBox="0 0 1440 90" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="width:100%;height:90px;display:block;">
+    <path d="M0,90 L0,50 C200,10 500,80 800,30 C1050,0 1280,60 1440,25 L1440,90 Z" fill="#c0392b"/>
+  </svg>
+</div>
+
+<!-- ══ URGENCY ══ -->
+<div class="urgency">
+  <h3>⏰ Bu endirim məhdud müddətlidir!</h3>
+  <p>Proqram 40 AZN-dən 9.99 AZN-ə endirilmişdir. Yerlər tükənməmişdən əvvəl al.</p>
+</div>
+
+<!-- WAVE urgency→packages -->
+<div class="wave-wrap" style="background:#c0392b;">
+  <svg viewBox="0 0 1440 90" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="width:100%;height:90px;display:block;">
+    <path d="M0,0 C400,90 900,5 1200,60 C1340,88 1410,30 1440,50 L1440,90 L0,90 Z" fill="#1a2f7a"/>
+  </svg>
+</div>
+
+<!-- ══ PACKAGES ══ -->
+<section class="pkg-sec" id="al">
+  <div class="sh reveal"><h2> <em></em></h2><p>
+</p></div>
+  <div class="pgrid">
+    <div class="pkg pop reveal">
+      <div class="pbadge">
+</div>
+      <span class="plbl">Əsas 
+</span>
+      <div class="pold">40 AZN</div>
+      <div class="pprice">9.99<sub> AZN</sub></div>
+      <ul class="plist">
+<li>İdmanlar</li>
+<li>Günlük menyu</li>
+<li>Addım-addım izah</li>
+<li>30 günlük proqram</li>
+<li>Sübut olunmuş üsullar</li>
+<li>1 dəfə al, ömürlük sənin</li>
+<li>Evdə, avadanlıqsız idman</li>
+<li>Hər gün nə yeyəcəyini bilirsən</li>
+<li>Azərbaycan yeməklərinə uyğun</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- WAVE packages→form -->
+<div class="wave-wrap" style="background:#0f2460;">
+  <svg viewBox="0 0 1440 90" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="width:100%;height:90px;display:block;">
+    <path d="M0,90 L0,45 C250,5 600,80 900,35 C1100,5 1300,65 1440,30 L1440,90 Z" fill="#c0392b"/>
+  </svg>
+</div>
+
+<!-- ══ FORM ══ -->
+<section class="form-sec" id="odenis">
+  <div class="fbox reveal">
+    <div class="ftitle">💳 Ödəniş et, proqramı al</div>
+    
+    <div style="background:linear-gradient(135deg,rgba(192,57,43,.18),rgba(231,76,60,.1));border:1.5px solid rgba(192,57,43,.4);border-radius:18px;padding:22px 18px;margin-bottom:22px;">
+      <div style="color:#fff;font-size:.8rem;font-weight:800;letter-spacing:1px;text-transform:uppercase;margin-bottom:16px;text-align:center;">📋 Ödəniş Addımları İzahı </div>
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <div style="display:flex;align-items:flex-start;gap:14px;">
+          <div style="min-width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--r),var(--r2));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:.85rem;flex-shrink:0;box-shadow:0 4px 12px rgba(192,57,43,.4);">1</div>
+          <div style="color:rgba(255,255,255,.85);font-size:.83rem;line-height:1.6;padding-top:5px;">Ödənişi aşağıda göstərilən kart nömrəsinə köçürün.</div>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:14px;">
+          <div style="min-width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--r),var(--r2));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:.85rem;flex-shrink:0;box-shadow:0 4px 12px rgba(192,57,43,.4);">2</div>
+          <div style="color:rgba(255,255,255,.85);font-size:.83rem;line-height:1.6;padding-top:5px;">Qəbzi WhatsApp vasitəsilə bizə göndərin.</div>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:14px;">
+          <div style="min-width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--r),var(--r2));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:.85rem;flex-shrink:0;box-shadow:0 4px 12px rgba(192,57,43,.4);">3</div>
+          <div style="color:rgba(255,255,255,.85);font-size:.83rem;line-height:1.6;padding-top:5px;">Proqram bir neçə dəqiqə ərzində sizə təqdim olunacaq.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="kpanel">
+      <div class="kl"><span class="kll">Kart nömrəsi</span><div class="knum" id="kart">5239 1517 5388 3290</div></div>
+      <button class="cbtn" onclick="copyK(this)">📋 Kopyala</button>
+    </div>
+
+    <a href="https://wa.me/994554701307" target="_blank" class="sbtn" style="display:block;text-align:center;text-decoration:none;margin-top:10px;">
+      💬 Qəbzi WhatsApp-dan Göndər
+    </a>
+  </div>
+</section>
+
+<!-- WAVE form→footer -->
+<div class="wave-wrap" style="background:#e8960a;">
+  <svg viewBox="0 0 1440 90" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="width:100%;height:90px;display:block;">
+    <path d="M0,20 C300,90 700,0 1050,60 C1220,90 1370,20 1440,45 L1440,90 L0,90 Z" fill="#060d2e"/>
+  </svg>
+</div>
+
+<div class="disc">Bu proqram ümumi sağlamlıq məlumatlarına əsasən hazırlanmışdır. Hər fərdin bədəni fərqlidir. Xroniki xəstəliyi olanlar başlamadan əvvəl həkimə müraciət etsin. Rəqəmsal məhsul olduğu üçün ödəniş qətidir, geri qaytarılma qəbul edilmir.</div>
+<footer>© 2025 <em>Leyla Sultanova</em> — Bütün hüquqlar qorunur</footer>
+
+<!-- WhatsApp Floating Button -->
+<a class="wa-float" href="https://wa.me/994554701307" target="_blank" rel="noopener" aria-label="WhatsApp ilə yazın">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<script>
+let s = 13; 
+const timer = setInterval(() => {
+  if (s > 8) {
+    s--; 
+    document.getElementById('spots').textContent = s;
+  } else {
+    clearInterval(timer); 
+  }
+}, 5000);
+
+function copyK(btn){
+  navigator.clipboard.writeText('5239151753883290');
+  const o=btn.textContent;btn.textContent='✓ Kopyalandı!';
+  btn.style.background='linear-gradient(135deg,#27ae60,#2ecc71)';
+  setTimeout(()=>{btn.textContent=o;btn.style.background='';},2500);
+}
+function send(){
+  const q=document.getElementById('qebz').files[0];
+  if(!q){alert('Zəhmət olmasa qəbz şəklini yükləyin');return;}
+  const msg=encodeURIComponent('Ödənişiniz uğurla qəbul edildi🎉 Proqram ən qısa müdəət ərzəsində sizə təqdim olunacaq!(Mesajı Mütləq Göndərin)');
+  window.open('https://wa.me/994554701307?text='+msg,'_blank');
+}
+
+function togglePayInfo(){
+  const body=document.getElementById('payBody');
+  const header=document.getElementById('payToggle');
+  const arrow=document.getElementById('payArrow');
+  const isOpen=body.classList.toggle('open');
+  header.classList.toggle('open',isOpen);
+}
+
+const ob=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting)el.target.classList.add('in');});},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>ob.observe(el));
+</script>
+</body>
+</html>
