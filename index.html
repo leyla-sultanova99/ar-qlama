@@ -440,7 +440,7 @@ footer em{font-style:normal;color:var(--o);font-weight:700;}
   <div style="max-width:600px;margin:0 auto;">
     <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(243,156,18,.15);border:1.5px solid rgba(243,156,18,.35);color:#f39c12;padding:7px 20px;border-radius:50px;font-size:.75rem;font-weight:700;letter-spacing:1px;margin-bottom:22px;">✦ NİYƏ BİZ?</div>
     <p style="color:#fff;font-size:1.07rem;font-weight:700;line-height:1.80;margin-bottom:32px;">
-Bizim fərqimiz odur ki, Azərbaycana uyğun proqram hazırlamışıq və təqdim etdiyimiz idman və qidalanma üsulları elmi və praktiki olaraq sübut olunub.</span>
+      Bizim fərqimiz odur ki, Azərbaycana uyğun proqram hazırlamışıq və təqdim etdiyimiz idman və qidalanma üsulları elmi və praktiki olaraq sübut olunub.</span>
     </p>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;">
       <div style="background:rgba(255,255,255,.07);border:1.5px solid rgba(255,255,255,.1);border-radius:18px;padding:20px 12px;">
@@ -535,31 +535,28 @@ Bizim fərqimiz odur ki, Azərbaycana uyğun proqram hazırlamışıq və təqdi
     500-dən çox Azərbaycan qadını bu proqramla arıqladı. Hamısı evdə, rahat idmanlar ilə.
   </p>
 
-  <!-- 3 nəticə kartı -->
-  <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:16px; max-width:760px; margin:0 auto;">
-
-    <div style="background:rgba(255,255,255,.08); border:1.5px solid rgba(230,126,34,.35); border-radius:16px; padding:22px 20px; width:200px;">
-      <div style="font-size:2rem; font-weight:900; color:#f39c12;">−12 kq</div>
-      <div style="color:#fff; font-size:.82rem; font-weight:700; margin:6px 0 4px;">Nigar, Bakı</div>
-      <div style="color:rgba(255,255,255,.55); font-size:.75rem;">3 həftədə</div>
+  <!-- Şəkillər sürüşdürmə (slider) -->
+  <div style="max-width:420px; margin:0 auto 36px; position:relative;">
+    <div id="sliderTrack" style="overflow:hidden; border-radius:20px; box-shadow:0 12px 40px rgba(0,0,0,.4);">
+      <div id="sliderInner" style="display:flex; transition:transform .45s ease;">
+        <img src="https://i.imgur.com/BuXXT1c.jpeg""" style="width:100%; flex-shrink:0; display:block; object-fit:cover;" />
+        <img src="https://i.imgur.com/VWQt1U5.jpeg""" style="width:100%; flex-shrink:0; display:block; object-fit:cover;" />
+        <img src="https://i.imgur.com/Rxokulc.jpeg""" style="width:100%; flex-shrink:0; display:block; object-fit:cover;" />
+      </div>
     </div>
-
-    <div style="background:rgba(255,255,255,.08); border:1.5px solid rgba(192,57,43,.4); border-radius:16px; padding:22px 20px; width:200px;">
-      <div style="font-size:2rem; font-weight:900; color:#e74c3c;">−9 kq</div>
-      <div style="color:#fff; font-size:.82rem; font-weight:700; margin:6px 0 4px;">Türkan, Sumqayıt</div>
-      <div style="color:rgba(255,255,255,.55); font-size:.75rem;">1 ayda</div>
+    <!-- Oxlar -->
+    <button onclick="slideMove(-1,true)" style="position:absolute;top:50%;left:-18px;transform:translateY(-50%);width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#c0392b,#e67e22);border:none;color:#fff;font-size:1.1rem;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.3);">‹</button>
+    <button onclick="slideMove(1,true)"  style="position:absolute;top:50%;right:-18px;transform:translateY(-50%);width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#c0392b,#e67e22);border:none;color:#fff;font-size:1.1rem;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.3);">›</button>
+    <!-- Nöqtələr -->
+    <div style="display:flex;justify-content:center;gap:8px;margin-top:14px;">
+      <span class="sdot" style="width:10px;height:10px;border-radius:50%;background:#f39c12;display:inline-block;transition:.3s;"></span>
+      <span class="sdot" style="width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.3);display:inline-block;transition:.3s;"></span>
+      <span class="sdot" style="width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.3);display:inline-block;transition:.3s;"></span>
     </div>
-
-    <div style="background:rgba(255,255,255,.08); border:1.5px solid rgba(230,126,34,.35); border-radius:16px; padding:22px 20px; width:200px;">
-      <div style="font-size:2rem; font-weight:900; color:#f39c12;">−8 kq</div>
-      <div style="color:#fff; font-size:.82rem; font-weight:700; margin:6px 0 4px;">Aytən, Gəncə</div>
-      <div style="color:rgba(255,255,255,.55); font-size:.75rem;">25 günə</div>
-    </div>
-
   </div>
 
   <a href="#al" style="
-    display:inline-block; margin-top:36px;
+    display:inline-block; margin-top:8px;
     background:linear-gradient(135deg,#c0392b,#e74c3c,#e67e22);
     color:#fff; font-weight:800; font-size:1rem;
     padding:17px 48px; border-radius:50px; text-decoration:none;
@@ -568,6 +565,59 @@ Bizim fərqimiz odur ki, Azərbaycana uyğun proqram hazırlamışıq və təqdi
     Mən də istəyirəm →
   </a>
 </div>
+
+<script>
+(function(){
+  let cur=0;
+  const total=3;
+  let startX=0, isDragging=false;
+  let autoTimer=null;
+
+  function startAuto(){
+    if(autoTimer) clearInterval(autoTimer);
+    autoTimer=setInterval(()=>window.slideMove(1), 4000);
+  }
+  function pauseAuto(){
+    if(autoTimer) clearInterval(autoTimer);
+    autoTimer=null;
+    setTimeout(startAuto, 7000);
+  }
+
+  function update(){
+    document.getElementById('sliderInner').style.transform='translateX(-'+cur*100+'%)';
+    document.querySelectorAll('.sdot').forEach((d,i)=>{
+      d.style.background = i===cur ? '#f39c12' : 'rgba(255,255,255,.3)';
+    });
+  }
+  window.slideMove=function(dir, manual){
+    cur=(cur+dir+total)%total;
+    update();
+    if(manual) pauseAuto();
+  };
+
+  // Touch / swipe support
+  const track = document.getElementById('sliderTrack');
+  track.addEventListener('touchstart', e=>{ startX=e.touches[0].clientX; isDragging=true; }, {passive:true});
+  track.addEventListener('touchend', e=>{
+    if(!isDragging) return;
+    const diff = startX - e.changedTouches[0].clientX;
+    if(Math.abs(diff)>40) window.slideMove(diff>0 ? 1 : -1, true);
+    isDragging=false;
+  }, {passive:true});
+  // Mouse drag support
+  track.addEventListener('mousedown', e=>{ startX=e.clientX; isDragging=true; });
+  track.addEventListener('mouseup', e=>{
+    if(!isDragging) return;
+    const diff = startX - e.clientX;
+    if(Math.abs(diff)>40) window.slideMove(diff>0 ? 1 : -1, true);
+    isDragging=false;
+  });
+  track.addEventListener('mouseleave', ()=>{ isDragging=false; });
+
+  // Auto-play
+  startAuto();
+})();
+</script>
 
 
 <!-- WAVE reviews→urgency -->
@@ -712,3 +762,5 @@ document.querySelectorAll('.reveal').forEach(el=>ob.observe(el));
 </script>
 </body>
 </html>
+
+
